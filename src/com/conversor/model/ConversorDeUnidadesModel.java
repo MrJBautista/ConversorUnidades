@@ -8,8 +8,8 @@ public class ConversorDeUnidadesModel {
 	HashMap<String, Double> equivalencias;
 	private String unidadesMoneda[] = {"Peso Dominicano","Dólar","Euro","Yen Japonés"};
 	private String unidadesLongitud[] = {"Milímetro","Centímetro","Metro","Kilómetro","Pulgada","Yarda"};
-	private String unidadesMasa[] = {"Gramo","Miligramo","Kilogramo","Tonelada"};
-	private String unidadesTiempo[] = {"Minuto","Milisegundo","Segundo","Hora","Día"};
+	private String unidadesMasa[] = {"Miligramo","Gramo","Kilogramo","Tonelada"};
+	private String unidadesTiempo[] = {"Milisegundo","Segundo","Minuto","Hora","Día"};
 	
 	public ConversorDeUnidadesModel() {
 		
@@ -43,7 +43,7 @@ public class ConversorDeUnidadesModel {
         equivalencias.put("Día", 1440.00);
 	}
 	
-	public double convertir(String origen, String destino, double monto) {
+	public double convertir(String origen, String destino, double monto) throws Exception {
 		return monto*this.equivalencias.get(origen)/equivalencias.get(destino);
 	}
 	
@@ -65,7 +65,6 @@ public class ConversorDeUnidadesModel {
 		default: 
 			resultado = unidadesMoneda;
 		}
-		
 		return resultado;
 	}
 }
